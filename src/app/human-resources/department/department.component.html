@@ -1,0 +1,33 @@
+<div class="container">
+    <button class="btn btn-primary" >
+        <a routerLink="/addDepartment" style="color: white;" routerLinkActive="active">Add Department</a>
+    </button>
+    <div class="card">
+        <h2 class="text-center">Employees List</h2>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Manager ID</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let department of departments  | paginate: paginationParams">
+                        <td>{{department.id}}</td>
+                        <td>{{department.name}}</td>
+                        <td>{{department.managerId}}</td>
+                        <td><button class="btn btn-primary" (click) = "updateDepartment(department.id)">Edit</button></td>
+                        <td><button class="btn btn-danger" (click) = "deleteDepartment(department.id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls 
+            (pageChange)="pageChange($event)" 
+        ></pagination-controls>
+            
+        </div>
+    </div>
+
+</div> 
