@@ -32,24 +32,21 @@ export class DepartmentComponent implements OnInit {
   }
 
 
-  getEmployees(){
-    //this.employeeService.getEmployees().subscribe((data : Employee []) =>{
-      //console.log(data);
-      //this.employees = data;
-   // })
+  getDepartments(){
+    this.getAllDepartmentsWithPagination(this.paginationParams);
   }
   deleteDepartment(id:number){
-    //this.employeeService.deleteEmployee(id).subscribe(data=>{
-      //this.getEmployees();
-    //})
+    this.departmentService.deleteDepartment(id).subscribe(data=>{
+      this.getDepartments();
+    })
   }
   updateDepartment(id:number){
-    this.router.navigate(['create-employee',id]);
+    this.router.navigate(['updateDepartment',id]);
   }
 
   pageChange(page:number){
     this.paginationParams.currentPage = page-1;
-    //this.getAllEmployeesWithPagination(this.paginationParams);
+    this.getAllDepartmentsWithPagination(this.paginationParams);
     this.paginationParams.currentPage = page;
   }
 

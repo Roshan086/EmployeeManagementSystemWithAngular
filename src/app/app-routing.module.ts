@@ -13,6 +13,10 @@ const routes: Routes = [
     path:'addDepartment',
     component:AddDepartmentComponent,
   },
+  {
+    path:'updateDepartment/:id',
+    component:AddDepartmentComponent,
+  },
   /*
   {
     path:'addDepartment',

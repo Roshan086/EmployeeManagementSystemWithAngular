@@ -14,7 +14,7 @@ import { DepartmentComponent } from './human-resources/department/department.com
   declarations: [
     AppComponent,
     DepartmentComponent,
-    AddDepartmentComponent
+    AddDepartmentComponent,
   ],
   imports: [
     NgxPaginationModule,

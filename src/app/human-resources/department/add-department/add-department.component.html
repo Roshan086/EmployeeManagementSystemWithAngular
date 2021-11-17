@@ -1,9 +1,10 @@
+<div class="container">
 <form (ngSubmit) = "onSubmit()" name="department">
     
     <div class="row">
         <div class="col">
           <input type="text" class="form-control" placeholder="Name"
-          [(ngModel)] = "department.name" name="name" id="name" required="true">
+          [(ngModel)] = "department.departmentName" name="name" id="name" required="true">
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="manager id"
@@ -15,4 +16,4 @@
      
     <button class="btn btn-success" type="submit">Submit</button>
   </form>
-  <br><br>
+  </div>

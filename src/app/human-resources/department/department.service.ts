@@ -28,4 +28,11 @@ export class DepartmentService {
     return this.http.post(`${this.baseURL}`+'/saveDepartment',department,this.httpHeader);
   }
 
+  deleteDepartment(id:any):Observable<Object>{
+    return this.http.get(`${this.baseURL}`+'/delete/'+id,this.httpHeader);
+  }
+
+  getDepartment(id:number):Observable<Department>{
+    return this.http.get(`${this.baseURL}`+'/view/'+id,this.httpHeader);
+  }
 }

@@ -1,5 +1,5 @@
 export class Department {
     id?:any;
-    name?:string;
+    departmentName?:string;
     managerId?:any;
 }
