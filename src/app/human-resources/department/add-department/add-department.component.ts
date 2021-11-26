@@ -13,7 +13,14 @@ export class AddDepartmentComponent implements OnInit {
   id:number=0;
 
   constructor(private router : Router,private route : ActivatedRoute,
-    private departmentService: DepartmentService) { }
+    private departmentService: DepartmentService) { 
+      this.id = this.route.snapshot.params['id'];
+    this.departmentService.getDepartment(this.id).subscribe(data=>{
+      console.log(data);
+      this.department = data;
+    })
+
+    }
 
   
   ngOnInit(): void {
@@ -21,16 +28,24 @@ export class AddDepartmentComponent implements OnInit {
     this.departmentService.getDepartment(this.id).subscribe(data=>{
       this.department = data;
     })
-    console.log("rr",this.department);
   }
 
   saveDepartment(){
-    alert(this.department.id);
-    this.departmentService.saveDepartment(this.department).subscribe(data=>{
-      console.log(data);  
-      this.router.navigate(['/department']);
-  });
+    console.log("department===",this.department);
+    if(this.id){
+      this.department.id=this.id;
+      this.departmentService.updateDepartment(this.department).subscribe(data=>{
+        console.log(data);  
+        this.router.navigate(['/department']);
+    });
+}else{
+  this.departmentService.saveDepartment(this.department).subscribe(data=>{
+    console.log(data);  
+    this.router.navigate(['/department']);
+});
 }
+}
+
     onSubmit(){
       console.log("Departmnent ",this.department);
       this.saveDepartment();
