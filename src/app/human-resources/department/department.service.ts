@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PaginationResponse } from 'src/app/utill/PaginationResponse';
 import { Department } from './department';
@@ -26,6 +26,10 @@ export class DepartmentService {
 
   saveDepartment(department: Department): Observable<Object>{
     return this.http.post(`${this.baseURL}`+'/saveDepartment',department,this.httpHeader);
+  }
+
+  updateDepartment(department: Department): Observable<Object>{
+    return this.http.post(`${this.baseURL}`+'/updateDepartment',department,this.httpHeader);
   }
 
   deleteDepartment(id:any):Observable<Object>{

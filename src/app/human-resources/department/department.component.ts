@@ -44,6 +44,7 @@ export class DepartmentComponent implements OnInit {
     this.router.navigate(['updateDepartment',id]);
   }
 
+  
   pageChange(page:number){
     this.paginationParams.currentPage = page-1;
     this.getAllDepartmentsWithPagination(this.paginationParams);
