@@ -1,8 +1,14 @@
 <div class="container">
 <form (ngSubmit) = "onSubmit()" name="department">
-    
+    <div>
+      <div class="col">
+        <input type="hidden" class="form-control" placeholder="id"
+        [(ngModel)] = "department.id" name="name" id="name" required="true">
+      </div>
+    </div>
     <div class="row">
-        <div class="col">
+        
+      <div class="col">
           <input type="text" class="form-control" placeholder="Name"
           [(ngModel)] = "department.departmentName" name="name" id="name" required="true">
         </div>
